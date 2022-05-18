@@ -9,6 +9,7 @@ class ProfesionalHoras: public TipoEmpleado{
 
     public:
 
+    double calcularPago();
 
 }; 
 #endif

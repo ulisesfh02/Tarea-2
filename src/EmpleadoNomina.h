@@ -9,6 +9,7 @@ class EmpleadoNomina: public TipoEmpleado{
 
     public:
 
+    double calcularPago();
 
 }; 
 #endif
