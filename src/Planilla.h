@@ -2,14 +2,15 @@
 #define PLANILLA
 
 #include "TipoEmpleado.h"
-#include <vector>
+#include <map>
 
 class Planilla{
+    TipoEmpleado *director;
 
-    vector<TipoEmpleado *> empleados;
+    map<int, TipoEmpleado *> empleados;
 
     public:
-    Planilla();
+    Planilla(int idDirector, );
     ~Planilla();
 
     void agregarEmpleado(TipoEmpleado * empleado);
