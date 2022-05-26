@@ -13,11 +13,12 @@ class TipoEmpleado{
     string apellido;
     string email;
     int tipoEmpleado;
-    TipoEmpleado* idSupervisor;
+    int idSupervisor;
 
     public:
-
-    TipoEmpleado(int idEmpleado, string nombre, string apellido, string email, int tipoEmpleado, TipoEmpleado* idSupervisor);
+    TipoEmpleado();
     virtual double calcularPago() = 0;
+
+    virtual int getIdEmpleado();
 }; 
 #endif

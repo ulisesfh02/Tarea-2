@@ -10,7 +10,7 @@ class Planilla{
     map<int, TipoEmpleado *> empleados;
 
     public:
-    Planilla(int idDirector);
+    Planilla();
     ~Planilla();
 
     void agregarEmpleado(TipoEmpleado * empleado);

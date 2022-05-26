@@ -4,12 +4,18 @@
 #include "TipoEmpleado.h"
 using namespace std;
 #include <string>
+#include <iostream>
 
 class ProfesionalHoras: public TipoEmpleado{
 
     public:
+    ProfesionalHoras();
+    ProfesionalHoras(int, string, string, string, int, int);
+    ~ProfesionalHoras();
 
     double calcularPago();
 
+    friend istream& operator >> (istream &i, ProfesionalHoras *profesionalHoras);
+    friend ostream& operator << (ostream &o, const ProfesionalHoras *profesionalHoras);
 }; 
 #endif
