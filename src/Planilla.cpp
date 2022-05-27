@@ -11,6 +11,9 @@ Planilla::Planilla(){
 }
 
 Planilla::~Planilla(){
+    for(pair<int, TipoEmpleado *> empleado : this->empleados){
+        delete empleado.second;
+    }
 }
 
 void Planilla::agregarEmpleado(TipoEmpleado * empleado){

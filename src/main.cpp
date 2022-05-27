@@ -1,11 +1,12 @@
 #include "TipoEmpleado.h"
 #include "EmpleadoNomina.h"
-#include "ProfesionalHoras.h"
 #include "Planilla.h"
 
+#include <sstream>
 #include <fstream>
-#include <vector>
+#include <map>
 #include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -13,20 +14,22 @@ int main(){
 
     Planilla *planilla = new Planilla();
 
-    ifstream ifs("../textFiles/personas.txt", ifstream::in); // Por default abriendo como texto
+    string nombreArchivo = "personas.txt";
 
-    if (!ifs.is_open())
+    ifstream archivoPersonas(nombreArchivo, ifstream::in); // Por default abriendo como texto
+
+    if (!archivoPersonas.is_open())
     {
-        cerr << "Error leyendo archivo ejemplo.txt" << endl;
+        cerr << "Error leyendo archivo personas.txt" << endl;
         return -1;
     }
 
     
-    ifs >> planilla;
+    archivoPersonas >> planilla;
 
     cout << planilla;
 
-    ifs.close();
+    archivoPersonas.close();
 
     delete planilla;
 

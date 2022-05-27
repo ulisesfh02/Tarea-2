@@ -16,7 +16,6 @@ class TipoEmpleado{
     int idSupervisor;
 
     public:
-    TipoEmpleado();
     virtual double calcularPago() = 0;
 
     virtual int getIdEmpleado();
