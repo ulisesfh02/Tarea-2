@@ -15,7 +15,5 @@ class ProfesionalHoras: public TipoEmpleado{
 
     double calcularPago();
 
-    friend istream& operator >> (istream &i, ProfesionalHoras *profesionalHoras);
-    friend ostream& operator << (ostream &o, const ProfesionalHoras *profesionalHoras);
 }; 
 #endif

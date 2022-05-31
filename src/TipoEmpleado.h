@@ -2,6 +2,7 @@
 #define TIPOEMPLEADO
 
 using namespace std;
+#include <iostream>
 #include <string>
 
 class TipoEmpleado{
@@ -17,7 +18,10 @@ class TipoEmpleado{
 
     public:
     virtual double calcularPago() = 0;
-
     virtual int getIdEmpleado();
+
+    friend istream& operator >> (istream &i, TipoEmpleado *tipoEmpleado);
+    friend ostream& operator << (ostream &o, const TipoEmpleado *tipoEmpleado);
+
 }; 
 #endif

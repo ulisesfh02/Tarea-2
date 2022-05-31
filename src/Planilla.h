@@ -2,12 +2,14 @@
 #define PLANILLA
 
 #include "TipoEmpleado.h"
-#include <map>
+#include "ProfesionalHoras.h"
+#include <vector>
+#include <iostream>
 
 class Planilla{
     TipoEmpleado *director;
 
-    map<int, TipoEmpleado *> empleados;
+    vector<TipoEmpleado*> empleados;
 
     public:
     Planilla();
@@ -17,7 +19,7 @@ class Planilla{
     TipoEmpleado * buscarEmpleado(int idEmpleado);
 
     friend istream& operator >> (istream &i, Planilla *planilla);
-    friend ostream& operator << (ostream &i, const Planilla *planilla);
+    friend ostream& operator << (ostream &o, const Planilla *planilla);
 };
 
 #endif
