@@ -3,6 +3,7 @@
 
 #include "TipoEmpleado.h"
 #include "ProfesionalHoras.h"
+#include "EmpleadoNomina.h"
 #include <vector>
 #include <iostream>
 
@@ -17,6 +18,7 @@ class Planilla{
 
     void agregarEmpleado(TipoEmpleado * empleado);
     TipoEmpleado * buscarEmpleado(int idEmpleado);
+    void asignarDinero(istream&, istream&);
 
     friend istream& operator >> (istream &i, Planilla *planilla);
     friend ostream& operator << (ostream &o, const Planilla *planilla);

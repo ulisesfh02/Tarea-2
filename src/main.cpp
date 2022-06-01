@@ -1,6 +1,6 @@
 #include "TipoEmpleado.h"
 #include "EmpleadoNomina.h"
-#include "Planilla.h"
+#include "Planilla2.h"
 
 #include <sstream>
 #include <fstream>
@@ -12,26 +12,44 @@ using namespace std;
 
 int main(){
 
-    Planilla *planilla = new Planilla();
+    string archivoPersonas = "personas.txt";
+    string archivoNomina = "nomina.txt";
+    string archivoHoras = "horastrabajadas.txt";
+    
 
-    string nombreArchivo = "personas.txt";
+    ifstream firstStream(archivoPersonas, ifstream::in);
+    ifstream secondStream(archivoNomina, ifstream::in); 
+    ifstream thirdStream(archivoHoras, ifstream::in);
 
-    ifstream archivoPersonas(nombreArchivo, ifstream::in); // Por default abriendo como texto
+    if (!secondStream.is_open())
+    {
+        cerr << "Error leyendo archivo horastrabajadas.txt" << endl;
+        return -1;
+    }
 
-    if (!archivoPersonas.is_open())
+    if (!firstStream.is_open())
     {
         cerr << "Error leyendo archivo personas.txt" << endl;
         return -1;
     }
-
     
-    archivoPersonas >> planilla;
+    if (!thirdStream.is_open())
+    {
+        cerr << "Error leyendo archivo nomina.txt" << endl;
+        return -1;
+    }
 
-    cout << planilla;
+    Planilla2 *planilla2 = new Planilla2(&firstStream, &secondStream, &thirdStream);
 
-    archivoPersonas.close();
+    planilla2->leerArchivos();
 
-    delete planilla;
+    cout << planilla2;
+
+    firstStream.close();
+    secondStream.close();
+    thirdStream.close();
+
+    delete planilla2;
 
     return 0;
 }

@@ -21,6 +21,17 @@ void Planilla::agregarEmpleado(TipoEmpleado * empleado){
     this->empleados.push_back(empleado);
 }
 
+void Planilla::asignarDinero(istream &i, istream &j){
+    string lineaNomina;
+    int contador=0;
+    while(getline(i, lineaNomina)){
+        istringstream stream(lineaNomina);
+        empleados[contador]->leerNomina(stream);
+    }
+
+}
+
+
 istream& operator >> (istream &i, Planilla *planilla){
     string linea;
     string num;
@@ -31,7 +42,6 @@ istream& operator >> (istream &i, Planilla *planilla){
     num+= linea[0];
     num+= linea[1];
     num+= linea[2];
-    cout<< num <<endl;
     
     istringstream streamLinea(linea);
 
@@ -52,7 +62,6 @@ istream& operator >> (istream &i, Planilla *planilla){
     num+= linea[0];
     num+= linea[1];
     num+= linea[2];
-    cout<< num <<endl;
     
     istringstream streamLinea(linea);
 

@@ -15,6 +15,8 @@ class TipoEmpleado{
     string email;
     int tipoEmpleado;
     int idSupervisor;
+    
+    
 
     public:
     virtual double calcularPago() = 0;

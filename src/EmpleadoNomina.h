@@ -7,9 +7,14 @@ using namespace std;
 
 class EmpleadoNomina: public TipoEmpleado{
 
-    public:
+    double pagoMensual;
 
+    public:
+    EmpleadoNomina();
+    EmpleadoNomina(int, string, string, string, int, int);
+    ~EmpleadoNomina();
     double calcularPago();
 
+    void leerNomina(istream &i);
 }; 
 #endif
