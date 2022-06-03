@@ -43,7 +43,18 @@ int main(){
 
     planilla2->leerArchivos();
 
-    cout << planilla2;
+    ofstream ofs("ejemploEscritura.txt", std::ifstream::out); // Por default abriendo como texto
+
+    if (!ofs.is_open())
+    {
+        std::cerr << "Error leyendo archivo ejemploEscritura.txt" << std::endl;
+        return -1;
+    }
+
+    ofs << planilla2;
+    
+
+    ofs.close();
 
     firstStream.close();
     secondStream.close();

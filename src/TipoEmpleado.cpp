@@ -11,6 +11,6 @@ istream& operator >> (istream &i, TipoEmpleado *tipoEmpleado){
     return i;
 }
 ostream& operator << (ostream &o, const TipoEmpleado *tipoEmpleado){
-    o << tipoEmpleado->idEmpleado << "," << tipoEmpleado->nombre << "," << tipoEmpleado->apellido << "," << tipoEmpleado->email << "," << tipoEmpleado->tipoEmpleado << "," << tipoEmpleado->idSupervisor;
+    o << tipoEmpleado->idEmpleado << "," << tipoEmpleado->nombre << " " << tipoEmpleado->apellido << "," << tipoEmpleado->supervisor->nombre << " " << tipoEmpleado->supervisor->apellido << "," << tipoEmpleado->montoAPagar;
     return o;
 }
