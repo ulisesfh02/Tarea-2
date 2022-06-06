@@ -6,4 +6,4 @@ Para compilar el programa, ejecute el comando:
 
 Para utilizar el codigo compilado, ejecute:
 
-    bin/calcularEnvios
+    ./bin/planilla

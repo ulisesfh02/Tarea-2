@@ -20,12 +20,7 @@ ProfesionalHoras::ProfesionalHoras(int idEmpleado, string nombre, string apellid
 ProfesionalHoras::~ProfesionalHoras(){
 }
 
-double ProfesionalHoras::calcularPago(){
-    return 0;
-}
-
-void ProfesionalHoras::leerProfesional(istream &i){
-    i >> this->idEmpleado >> this->montoHoras >> this->horasLaboradas;
-    cout << this->montoHoras << ", " << this->horasLaboradas << endl;
+void ProfesionalHoras::calcularPago(){
+    this->montoAPagar=this->montoHoras*this->horasLaboradas;
 }
 

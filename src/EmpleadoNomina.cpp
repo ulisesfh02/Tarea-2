@@ -14,17 +14,12 @@ EmpleadoNomina::EmpleadoNomina(int idEmpleado, string nombre, string apellido, s
     this->tipoEmpleado=tipoEmpleado;
     this->idSupervisor=idSupervisor;
     this->pagoMensual=0;
-    
 }
 
 EmpleadoNomina::~EmpleadoNomina(){
 }
 
-double EmpleadoNomina::calcularPago(){
-    return 0;
-}
-
-void EmpleadoNomina::leerNomina(istream &i){
-    i >> this->idEmpleado >> this->pagoMensual;
-    cout << pagoMensual<< endl;
+void EmpleadoNomina::calcularPago(){
+    this->impuestoRetenido= pagoMensual*0.07;
+    this->montoAPagar = pagoMensual-impuestoRetenido;
 }

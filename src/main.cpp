@@ -43,7 +43,8 @@ int main(){
 
     planilla2->leerArchivos();
 
-    ofstream ofs("ejemploEscritura.txt", std::ifstream::out); // Por default abriendo como texto
+
+    ofstream ofs("Reporte.csv", std::ofstream::out); // Por default abriendo como texto
 
     if (!ofs.is_open())
     {
@@ -53,6 +54,7 @@ int main(){
 
     ofs << planilla2;
     
+    cout<< planilla2;
 
     ofs.close();
 

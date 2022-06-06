@@ -4,14 +4,14 @@
 #include "TipoEmpleado.h"
 #include "ProfesionalHoras.h"
 #include "EmpleadoNomina.h"
-#include <vector>
+#include <map>
 #include <iostream>
 
 class Planilla2{
 
     TipoEmpleado *director;
 
-    vector<TipoEmpleado*> empleados;
+    map<int, TipoEmpleado*> empleados;
 
     istream *personas;
     istream *nomina;
@@ -21,8 +21,8 @@ class Planilla2{
     Planilla2(istream*, istream*, istream*);
     ~Planilla2();
 
-    void agregarEmpleado(TipoEmpleado * empleado);
     void leerArchivos();
+    TipoEmpleado* obtenerSupervisor(int idEmpleado);
 
     friend ostream& operator << (ostream &o, const Planilla2 *planilla);
 };

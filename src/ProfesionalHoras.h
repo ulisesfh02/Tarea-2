@@ -8,15 +8,13 @@ using namespace std;
 
 class ProfesionalHoras: public TipoEmpleado{
 
-    double montoHoras;
-    double horasLaboradas;
-
+   
     public:
     ProfesionalHoras();
     ProfesionalHoras(int, string, string, string, int, int);
     ~ProfesionalHoras();
 
-    void leerProfesional(istream &i);
-    double calcularPago();
+    
+    void calcularPago();
 }; 
 #endif
