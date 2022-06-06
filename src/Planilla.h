@@ -17,7 +17,7 @@ class Planilla{
     istream *horas;
 
     public:
-    
+    Planilla();
     Planilla(istream*, istream*, istream*);
     ~Planilla();
 

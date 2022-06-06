@@ -2,6 +2,9 @@
 #include <iostream>
 #include <sstream>
 
+Planilla::Planilla(){
+}
+
 Planilla::Planilla(istream *personas, istream *nomina, istream *horas){
     this->personas= personas;
     this->nomina=nomina;
