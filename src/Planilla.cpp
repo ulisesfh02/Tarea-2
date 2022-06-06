@@ -16,16 +16,17 @@ Planilla::~Planilla(){
 
 void Planilla::leerArchivos(){
     string linea;
-    string num;
+    string idCheck;
     string lineaNomina;
     string lineaProfesional;
 
-    
+    //--------------------------------------------------//
+
     getline(*(this->personas), linea);
     istringstream streamLinea(linea);
-    EmpleadoNomina *nuevoEmpleado3 = new EmpleadoNomina();
-    streamLinea >> nuevoEmpleado3; 
-    this->director = nuevoEmpleado3;
+    EmpleadoNomina *director = new EmpleadoNomina();
+    streamLinea >> director; 
+    this->director = director;
 
     this->director->asignarSupervisor(this->director);
 
@@ -37,70 +38,70 @@ void Planilla::leerArchivos(){
     this->empleados.insert(pair<int, TipoEmpleado*> (director->obtenerIdEmpleado(), this->director));
     
 
-    while(getline(*(this->personas), linea) && num!="450" && getline(*(this->nomina), lineaNomina)){
-        num="";
-        num+= linea[0];
-        num+= linea[1];
-        num+= linea[2];
+    while(getline(*(this->personas), linea) && idCheck!="450" && getline(*(this->nomina), lineaNomina)){
+        idCheck="";
+        idCheck+= linea[0];
+        idCheck+= linea[1];
+        idCheck+= linea[2];
         
         
         istringstream streamLinea(linea);
 
-        EmpleadoNomina *nuevoEmpleado = new EmpleadoNomina();
-        streamLinea >> nuevoEmpleado;
+        EmpleadoNomina *nuevoEmpleadoNomina = new EmpleadoNomina();
+        streamLinea >> nuevoEmpleadoNomina;
 
-        TipoEmpleado *supervisor = this->empleados.at(nuevoEmpleado->obtenerIdSupervisor());
+        TipoEmpleado *supervisor = this->empleados.at(nuevoEmpleadoNomina->obtenerIdSupervisor());
 
-        supervisor->insertarHijo(nuevoEmpleado);
-        nuevoEmpleado->asignarSupervisor(supervisor);
+        supervisor->insertarHijo(nuevoEmpleadoNomina);
+        nuevoEmpleadoNomina->asignarSupervisor(supervisor);
 
 
         istringstream streamNomina(lineaNomina);
-        nuevoEmpleado->leerNomina(streamNomina);
-        nuevoEmpleado->calcularPago();
+        nuevoEmpleadoNomina->leerNomina(streamNomina);
+        nuevoEmpleadoNomina->calcularPago();
 
-        this->empleados.insert(pair<int, TipoEmpleado*> (nuevoEmpleado->obtenerIdEmpleado(), nuevoEmpleado));
+        this->empleados.insert(pair<int, TipoEmpleado*> (nuevoEmpleadoNomina->obtenerIdEmpleado(), nuevoEmpleadoNomina));
     }
 
-    istringstream str2(linea);
+    istringstream streamLineab(linea);
 
-    ProfesionalHoras *nuevoEmpleado2 = new ProfesionalHoras();
-    str2 >> nuevoEmpleado2;
+    ProfesionalHoras *primerProfesionalHoras = new ProfesionalHoras();
+    streamLineab >> primerProfesionalHoras;
 
-    TipoEmpleado *supervisor = this->empleados.at(nuevoEmpleado2->obtenerIdSupervisor());
+    TipoEmpleado *supervisor = this->empleados.at(primerProfesionalHoras->obtenerIdSupervisor());
 
-    supervisor->insertarHijo(nuevoEmpleado2);
-    nuevoEmpleado2->asignarSupervisor(supervisor);
+    supervisor->insertarHijo(primerProfesionalHoras);
+    primerProfesionalHoras->asignarSupervisor(supervisor);
 
     getline(*(this->horas), lineaProfesional);
     istringstream streamProfesional(lineaProfesional);
-    nuevoEmpleado2->leerProfesional(streamProfesional);
-    nuevoEmpleado2->calcularPago();
+    primerProfesionalHoras->leerProfesional(streamProfesional);
+    primerProfesionalHoras->calcularPago();
 
-    this->empleados.insert(pair<int, TipoEmpleado*> (nuevoEmpleado2->obtenerIdEmpleado(), nuevoEmpleado2));
+    this->empleados.insert(pair<int, TipoEmpleado*> (primerProfesionalHoras->obtenerIdEmpleado(), primerProfesionalHoras));
     
 
     while(getline(*(this->personas), linea) && getline(*(this->horas), lineaProfesional)){
-        num="";
-        num+= linea[0];
-        num+= linea[1];
-        num+= linea[2];
+        idCheck="";
+        idCheck+= linea[0];
+        idCheck+= linea[1];
+        idCheck+= linea[2];
         
         istringstream streamLinea(linea);
 
-        ProfesionalHoras *nuevoEmpleado = new ProfesionalHoras();
-        streamLinea >> nuevoEmpleado;
+        ProfesionalHoras *nuevoProfesionalHoras = new ProfesionalHoras();
+        streamLinea >> nuevoProfesionalHoras;
 
-        TipoEmpleado *supervisor = this->empleados.at(nuevoEmpleado->obtenerIdSupervisor());
+        TipoEmpleado *supervisor = this->empleados.at(nuevoProfesionalHoras->obtenerIdSupervisor());
 
-        supervisor->insertarHijo(nuevoEmpleado);
-        nuevoEmpleado->asignarSupervisor(supervisor);
+        supervisor->insertarHijo(nuevoProfesionalHoras);
+        nuevoProfesionalHoras->asignarSupervisor(supervisor);
 
         istringstream streamProfesional(lineaProfesional);
-        nuevoEmpleado->leerProfesional(streamProfesional);
-        nuevoEmpleado->calcularPago();
+        nuevoProfesionalHoras->leerProfesional(streamProfesional);
+        nuevoProfesionalHoras->calcularPago();
     
-        this->empleados.insert(pair<int, TipoEmpleado*> (nuevoEmpleado->obtenerIdEmpleado(), nuevoEmpleado));
+        this->empleados.insert(pair<int, TipoEmpleado*> (nuevoProfesionalHoras->obtenerIdEmpleado(), nuevoProfesionalHoras));
         
     }
 }

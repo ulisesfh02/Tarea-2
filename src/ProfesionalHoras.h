@@ -2,19 +2,16 @@
 #define PROFESIONALHORAS
 
 #include "TipoEmpleado.h"
-using namespace std;
 #include <string>
-#include <iostream>
+
+using namespace std;
 
 class ProfesionalHoras: public TipoEmpleado{
 
-   
     public:
     ProfesionalHoras();
     ProfesionalHoras(int, string, string, string, int, int);
-    ~ProfesionalHoras();
 
-    
     void calcularPago();
 }; 
 #endif

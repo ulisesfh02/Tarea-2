@@ -1,6 +1,6 @@
 #include "TipoEmpleado.h"
 #include "EmpleadoNomina.h"
-#include "Planilla2.h"
+#include "Planilla.h"
 
 #include <sstream>
 #include <fstream>
@@ -39,22 +39,20 @@ int main(){
         return -1;
     }
 
-    Planilla2 *planilla2 = new Planilla2(&firstStream, &secondStream, &thirdStream);
+    Planilla *planilla = new Planilla(&firstStream, &secondStream, &thirdStream);
 
-    planilla2->leerArchivos();
+    planilla->leerArchivos();
 
 
     ofstream ofs("Reporte.csv", std::ofstream::out); // Por default abriendo como texto
 
     if (!ofs.is_open())
     {
-        std::cerr << "Error leyendo archivo ejemploEscritura.txt" << std::endl;
+        std::cerr << "Error abriendo archivo Reporte.csv" << std::endl;
         return -1;
     }
 
-    ofs << planilla2;
-    
-    cout<< planilla2;
+    ofs << planilla;
 
     ofs.close();
 
@@ -62,7 +60,7 @@ int main(){
     secondStream.close();
     thirdStream.close();
 
-    delete planilla2;
+    delete planilla;
 
     return 0;
 }

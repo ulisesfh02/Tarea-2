@@ -1,7 +1,7 @@
 #include "ProfesionalHoras.h"
-using namespace std;
-
 #include <iostream>
+
+using namespace std;
 
 ProfesionalHoras::ProfesionalHoras(){
 }
@@ -15,9 +15,6 @@ ProfesionalHoras::ProfesionalHoras(int idEmpleado, string nombre, string apellid
     this->idSupervisor=idSupervisor;
     this->montoHoras=0;
     this->horasLaboradas=0;
-}
-
-ProfesionalHoras::~ProfesionalHoras(){
 }
 
 void ProfesionalHoras::calcularPago(){

@@ -10,7 +10,6 @@
 class Planilla{
 
     TipoEmpleado *director;
-
     map<int, TipoEmpleado*> empleados;
 
     istream *personas;
@@ -18,11 +17,11 @@ class Planilla{
     istream *horas;
 
     public:
+    
     Planilla(istream*, istream*, istream*);
     ~Planilla();
 
     void leerArchivos();
-    TipoEmpleado* obtenerSupervisor(int idEmpleado);
 
     friend ostream& operator << (ostream &o, const Planilla *planilla);
 };

@@ -16,9 +16,6 @@ EmpleadoNomina::EmpleadoNomina(int idEmpleado, string nombre, string apellido, s
     this->pagoMensual=0;
 }
 
-EmpleadoNomina::~EmpleadoNomina(){
-}
-
 void EmpleadoNomina::calcularPago(){
     this->impuestoRetenido= pagoMensual*0.07;
     this->montoAPagar = pagoMensual-impuestoRetenido;
