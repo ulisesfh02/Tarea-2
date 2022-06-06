@@ -11,6 +11,7 @@ class ProfesionalHoras: public TipoEmpleado{
     public:
     ProfesionalHoras();
     ProfesionalHoras(int, string, string, string, int, int);
+    ~ProfesionalHoras();
 
     void calcularPago();
 }; 

@@ -10,6 +10,7 @@ class EmpleadoNomina: public TipoEmpleado{
     public:
     EmpleadoNomina();
     EmpleadoNomina(int, string, string, string, int, int);
+    ~EmpleadoNomina();
     
     void calcularPago();
 

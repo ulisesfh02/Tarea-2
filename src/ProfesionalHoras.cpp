@@ -17,6 +17,9 @@ ProfesionalHoras::ProfesionalHoras(int idEmpleado, string nombre, string apellid
     this->horasLaboradas=0;
 }
 
+ProfesionalHoras::~ProfesionalHoras(){
+}
+
 void ProfesionalHoras::calcularPago(){
     this->montoAPagar=this->montoHoras*this->horasLaboradas;
 }
