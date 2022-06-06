@@ -1,20 +1,20 @@
-#include "Planilla2.h"
+#include "Planilla.h"
 #include <iostream>
 #include <sstream>
 
-Planilla2::Planilla2(istream *personas, istream *nomina, istream *horas){
+Planilla::Planilla(istream *personas, istream *nomina, istream *horas){
     this->personas= personas;
     this->nomina=nomina;
     this->horas=horas;
 }
 
-Planilla2::~Planilla2(){
+Planilla::~Planilla(){
     for(pair<int, TipoEmpleado*> empleado: this->empleados){
         delete empleado.second;
     }
 }
 
-void Planilla2::leerArchivos(){
+void Planilla::leerArchivos(){
     string linea;
     string num;
     string lineaNomina;
@@ -105,11 +105,11 @@ void Planilla2::leerArchivos(){
     }
 }
 
-ostream& operator << (ostream &o, const Planilla2 *planilla2){
+ostream& operator << (ostream &o, const Planilla *planilla){
     double impuestoTotal=0;
     double subtotal=0;
     double total=0;
-    for(pair<int, TipoEmpleado*> empleado: planilla2->empleados){
+    for(pair<int, TipoEmpleado*> empleado: planilla->empleados){
         o << empleado.second << endl;
         impuestoTotal += empleado.second->obtenerImpuestoRetenido();
         subtotal += empleado.second->obtenerMontoAPagar();

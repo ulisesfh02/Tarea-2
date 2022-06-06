@@ -1,5 +1,5 @@
-#ifndef PLANILLA2
-#define PLANILLA2
+#ifndef PLANILLA
+#define PLANILLA
 
 #include "TipoEmpleado.h"
 #include "ProfesionalHoras.h"
@@ -7,7 +7,7 @@
 #include <map>
 #include <iostream>
 
-class Planilla2{
+class Planilla{
 
     TipoEmpleado *director;
 
@@ -18,13 +18,13 @@ class Planilla2{
     istream *horas;
 
     public:
-    Planilla2(istream*, istream*, istream*);
-    ~Planilla2();
+    Planilla(istream*, istream*, istream*);
+    ~Planilla();
 
     void leerArchivos();
     TipoEmpleado* obtenerSupervisor(int idEmpleado);
 
-    friend ostream& operator << (ostream &o, const Planilla2 *planilla);
+    friend ostream& operator << (ostream &o, const Planilla *planilla);
 };
 
 #endif
